@@ -1,3 +1,0 @@
-deletions	AAATAA	4	100
-insertions	AAG-A[AG]	14	4732
-insertions	AAA-A[AG]	14	1418

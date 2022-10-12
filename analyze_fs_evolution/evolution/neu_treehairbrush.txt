@@ -1,0 +1,3 @@
+deletions	AATA	9	3888
+insertions	AATA	13	9162
+insertions	AGTA	7	14678

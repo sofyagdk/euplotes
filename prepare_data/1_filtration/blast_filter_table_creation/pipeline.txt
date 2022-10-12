@@ -1,0 +1,47 @@
+
+
+########################################
+### Contamination database collection:
+########################################
+
+##### download and unpack #####
+
+download file from NCBI into 
+/comtamination_compressed
+with wget command 
+
+unzip with 
+tar -xvf
+gzip 
+unzip
+
+and extract fna file into 
+/contamination_fastas
+saving the identificator!
+
+
+##### make blast database #####
+
+CHECK make_blast_db.py script 
+than use it 
+
+########################################
+### Using blast to find comtaminants
+########################################
+
+
+write_blast_commands.py - possible to change jobname inside program
+
+qsub blast_against_comtamination.sh
+
+wait untill finishes 
+
+tsv_parser.py 
+writes big table in /results/blast_table.txt
+all hits are stored in /results/blast_hits_big_table.tsv
+
+########################################
+### Grouping 
+########################################
+
+????

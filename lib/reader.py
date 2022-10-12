@@ -95,14 +95,23 @@ def complementary(seq):
 	for i in seq:
 		newseq += compl[i]
 	return newseq
-# def getcoding(seqid,  start, back, forw):
-# 	filename = ''.join(['/mnt/gamma/user/sofya/scripts/final/seq_tables/filter/', seqid, '.txt'])
-# 	re = '.'.join(list(map(str, [start, back, forw])))	
-# 	process = subprocess.Popen(["grep", re, filename], stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
-# 	stdout, stderr = process.communicate()
-# 	stdout = stdout.decode('utf-8')
-# 	# print(stdout)
-# 	coding_line = stdout.split('[')[2]
-# 	coding_line = coding_line.split(']')[0]
-# 	coding_events = list(map(int, coding_line.split(',')))
-# 	return coding_events
+
+
+def fasta_iterator(fasta):
+	with open(fasta, 'r') as fin:
+		idr = str()
+		seq = str()
+
+		for line in fin:
+
+			if '>' == line[0]:
+				if idr:
+					yield [idr, seq]
+				seq = ''
+
+				if '> ' == line[:2]:
+					idr = line.strip().split()[1]
+				else:
+					idr = line.strip().split()[0][1:]
+			else:
+				seq += line.strip()
