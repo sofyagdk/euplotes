@@ -1,0 +1,3 @@
+FP5now FP_length5 FP3now FP_length3 control_Reads control_length
+1 120 0 0 181 1440
+1 78 0 0 278 1263

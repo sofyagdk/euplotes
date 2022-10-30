@@ -965,28 +965,27 @@ class Transcript(object):
 		self._species = idr[:4]
 		self.bp_align = bp_align
 
-		if bp_align == None: 
-			self.get_alignment_fromfile()
+		# if bp_align == None: 
+		# 	self.get_alignment_fromfile()
 
 		
 
 
 
-	# need someone to look at please 
-	def get_alignment_fromfile(self, directory='/mnt/gamma/user/sofya/scripts/final/homo_bp_rev_alignwater/*'): 
-		args = ['gawk', '-e ', '"/' + str(self._idr) + '/{getline; print; exit}"', directory, '>', 'temp.txt']
-		cmd = ' '.join(args)
+	# def get_alignment_fromfile(self, directory='/mnt/gamma/user/sofya/scripts/final/homo_bp_rev_alignwater/*'): 
+	# 	args = ['gawk', '-e ', '"/' + str(self._idr) + '/{getline; print; exit}"', directory, '>', 'temp.txt']
+	# 	cmd = ' '.join(args)
 
-		os.system(cmd)
-		with open('temp.txt', 'r') as fin:
+	# 	os.system(cmd)
+	# 	with open('temp.txt', 'r') as fin:
 
-			e = fin.readline()
+	# 		e = fin.readline()
 
-		if e == str():
-			print('EXCEPTION from Transcript.get_sequence_fromfile:\
-				\nNo sequence with {0} identificator in {1} directory'.format(self._idr, directory))
-			return 
-		self.bp_align = e[:-1]
+	# 	if e == str():
+	# 		print('EXCEPTION from Transcript.get_sequence_fromfile:\
+	# 			\nNo sequence with {0} identificator in {1} directory'.format(self._idr, directory))
+	# 		return 
+	# 	self.bp_align = e[:-1]
 
 
 
@@ -1255,14 +1254,8 @@ def filter_paralogues(bp_dict):
 	return new_dict
 
 
-# logfile = open('logs_v5_' + flag + '.txt', 'a') #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
-# logfile = open('../12_golden/logs_vgold.txt', 'a') #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-
-
-# logfile = open('/mnt/gamma/user/sofya/scripts/final/0pipeline/18_graphmark/logs_from_graphmarker.txt', 'a') #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-
-logfile = open('/mnt/gamma/user/sofya/scripts/final/0pipeline/18_graphmark/logs_from_graphmarker' + flag + '.txt', 'a') #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+logfile = open('./logs_from_graphmarker' + flag + '.txt', 'a') #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 
 # files = ['hom_cras_c7093_g1_i1.fasta',
@@ -1315,17 +1308,3 @@ for filename in files[parts:parte]:
 		coding = transcript_dict[idr].get_coding(ortholog, 5)
 
 logfile.close()
-
-
-
-
-
-
-
-
-
-
-
-
-
-		
